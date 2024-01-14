@@ -7,15 +7,20 @@ const port = 3001;
 const connectionStringURI = `mongodb://127.0.0.1:27017`;
 const client = new MongoClient(connectionStringURI);
 
+// Create variable to hold db connection
 let db;
 
 const dbName = 'socialNetworkDB';
 
+// Connecting to MongoDB server
 client.connect()
+// on success...
 .then(() => {
     console.log('Connected successfully to MongoDB');
+    // Connect to socialNetworkDB
     db = client.db(dbName);
 
+    // ...start up Express server
     app.listen(port, () => {
         console.log(`Example app listening at http://localhost:${port}`);
     });
@@ -24,8 +29,11 @@ client.connect()
     console.error('Mongo connection error: ', err.message);
 });
 
+// Route handlers
 app.use(express.json());
 
-// app.post()
+// Post route
+app.post
 
-// app.get()
+// Get route
+app.get
