@@ -1,4 +1,5 @@
-const { Schema, Types } = require('mongoose');
+const mongoose = require('mongoose');
+const { Schema, Types } = mongoose;
 
 const reactionSchema = new Schema(
     {
@@ -10,7 +11,7 @@ const reactionSchema = new Schema(
             type: String,
             required: true,
             maxlength: 280,
-            minlength: 10,
+            minlength: 1,
         },
         username: {
             type: String,
@@ -29,4 +30,4 @@ const reactionSchema = new Schema(
     }
 );
 
-module.exports = reactionSchema;
+module.exports = mongoose.model('Reaction', reactionSchema);
